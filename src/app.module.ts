@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ExampleModule } from './modules/example/example.module';
+import { Module } from "@nestjs/common";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { TypeOrmModule } from "@nestjs/typeorm";
 
+import { ExampleModule } from "./modules/example/example.module";
 
 @Module({
   imports: [
@@ -11,15 +11,14 @@ import { ExampleModule } from './modules/example/example.module';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        type: 'mongodb',
-        url: configService.getOrThrow('APP_DATABASE_URL'),
-        database: configService.getOrThrow('APP_DATABASE_NAME'),
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        type: "mongodb",
+        url: configService.getOrThrow("APP_DATABASE_URL"),
+        database: configService.getOrThrow("APP_DATABASE_NAME"),
+        entities: [__dirname + "/**/*.entity{.ts,.js}"],
         synchronize: true,
-      })
-
+      }),
     }),
-    ExampleModule
+    ExampleModule,
   ],
 })
 export class AppModule {}

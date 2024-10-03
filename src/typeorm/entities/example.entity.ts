@@ -1,13 +1,13 @@
 import { Column, Entity, ObjectId, ObjectIdColumn } from "typeorm";
 
-@Entity('example')
+@Entity("example")
 export class ExampleEntity {
-    @ObjectIdColumn()
-    id: ObjectId;
+  @ObjectIdColumn()
+  id: ObjectId;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    quantity: number;
+  @Column()
+  quantity: number;
 }
